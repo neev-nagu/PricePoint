@@ -1,0 +1,344 @@
+/* General Styling */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background: #ffffff; /* White background */
+  color: #333;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+
+.animated-background {
+  display: flex;
+  width: 90%;
+  max-width: 1200px;
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  padding: 40px;
+  animation: fadeIn 1s ease-in-out; /* Fade-in effect for the container */
+}
+
+/* Sidebar Styling */
+.sidebar {
+  width: 30%;
+  background: #f8f9fa;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+.sidebar .logo {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #007bff;
+  text-align: center;
+}
+
+.steps {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.steps li {
+  margin-bottom: 15px;
+  font-size: 16px;
+  color: #6c757d;
+  padding: 12px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.3s ease;
+  text-align: left;
+  animation: fadeIn 0.5s ease-in-out both; /* Each item fades in */
+}
+
+
+.main-box {
+  background: #fff; /* White background */
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2); /* Drop shadow */
+  padding: 40px;
+  width: 100%; /* Full width for better layout */
+  max-width: 1200px; /* Limit maximum width */
+  display: flex;
+  gap: 20px;
+}
+
+.steps li.current {
+  font-weight: bold;
+  color: #007bff;
+  background-color: #e9f5ff;
+}
+
+/* Main Content Styling */
+.main-content {
+  flex: 1;
+  padding: 20px;
+}
+.step {
+  display: none;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease, transform 0.5s ease; /* Smooth fade-in and slide-up effect */
+}
+
+.step.active {
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.step.exiting {
+  animation: fadeOut 0.5s ease-in-out forwards; /* Smooth fade-out animation for exiting step */
+}
+
+/* Form Styling */
+.form-row {
+  display: flex;
+  gap: 30px; /* Add space between columns */
+  margin-bottom: 20px;
+}
+
+.form-group {
+  flex: 1;
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  margin-bottom: 10px; /* Increased spacing between label and input */
+  font-size: 14px;
+  color: #333;
+}
+
+input, textarea, select {
+  width: 100%;
+  padding: 15px; /* Increased padding inside inputs for better spacing */
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 8px; /* Slightly rounded corners for better design */
+  box-sizing: border-box;
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Added hover animation */
+}
+
+input:hover, textarea:hover, select:hover {
+  transform: scale(1.02); /* Slight zoom effect on hover */
+  box-shadow: 0 0 10px rgba(0, 123, 255, 0.2);
+}
+
+textarea {
+  resize: none;
+}
+
+input:focus, textarea:focus, select:focus {
+  border-color: #007bff;
+  outline: none;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+input[type="range"] {
+  width: 100%;
+  margin-top: 10px;
+}
+
+/* Buttons */
+.button-group {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 40px;
+  transition: opacity 0.5s ease, transform 0.5s ease; /* Smooth fade and movement */
+  opacity: 1;
+}
+
+button {
+  background: #007bff;
+  color: #fff;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+button.hidden {
+  opacity: 0;
+  transform: translateY(20px); /* Add a movement during hiding */
+  pointer-events: none; /* Disable interaction while hidden */
+}
+
+button:hover {
+  background: #0056b3;
+  transform: scale(1.05); /* Slight zoom on hover */
+}
+
+button:disabled {
+  background: #d6d6d6;
+  cursor: not-allowed;
+  opacity: 0.6; /* Make disabled button slightly transparent */
+}
+
+/* Keyframes for Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    transform: translateX(-50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .animated-background {
+    flex-direction: column;
+    padding: 20px;
+  }
+
+  .sidebar {
+    width: 100%;
+    border-right: none;
+    border-bottom: 1px solid #e9ecef;
+  }
+
+  .form-row {
+    flex-direction: column;
+  }
+
+  .main-content {
+    margin-left: 0;
+  }
+}
+
+/* Header Section */
+.top-header {
+  width: 100%;
+  background-color: #2f3d4b;
+  padding: 15px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #fff;
+  position: fixed;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+.top-header .logo {
+  font-size: 24px;
+  font-weight: bold;
+  margin: 0;
+  color: #fff;
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 90%;
+  margin: 0 auto;
+}
+
+
+.nav-links {
+  display: flex;
+  gap: 20px;
+}
+
+.nav-button {
+  text-decoration: none;
+  color: #C1E8FF;
+  font-size: 16px;
+  padding: 10px 15px;
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
+}
+
+.nav-button:hover {
+  background-color: #0056b3;
+}
+
+
+/* Content Container */
+.content-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh; /* Full viewport height */
+  padding: 20px;
+  margin-top: 60px; /* Space for fixed header */
+}
+/* Left Section: Description */
+.description {
+  flex: 1;
+  font-size: 22px; /* Increased font size */
+  line-height: 1.8; /* Better spacing between lines */
+  color: #fff;
+  max-width: 600px;
+}
+
+.description span {
+  font-weight: bold;
+  color: #FFD700;
+}
+
+/* Right Section: White Box for Start Working Now */
+.white-box {
+  flex: 1;
+  background: #fff;
+  border-radius: 10px;
+  padding: 50px 60px; /* Bigger box padding */
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  max-width: 500px;
+}
+
+.white-box h2 {
+  font-size: 30px; /* Increased text size for the heading */
+  color: #007bff;
+  margin-bottom: 30px;
+}
+.cta-button {
+  background: #007bff;
+  color: #fff;
+  text-decoration: none;
+  padding: 12px 25px;
+  border-radius: 8px;
+  font-size: 16px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+
+.cta-button:hover {
+  background: #0056b3;
+  transform: scale(1.05);
+}
